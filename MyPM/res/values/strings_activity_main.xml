@@ -1,0 +1,11 @@
+<resources>
+
+    <string name="data_update_at">数据更新于</string>
+    
+    <string name="you_are_in">检测到你在 </string>
+    
+    <string name="genneral_qulity">总体质量</string>
+    
+    <string name="unit_hint">以下数值单位：μg/m3(CO为mg/m3)</string>
+
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$USER_HOME$/GreenDroid/GreenDroid/GreenDroid.iml" filepath="$USER_HOME$/GreenDroid/GreenDroid/GreenDroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MyPM.iml" filepath="$PROJECT_DIR$/MyPM.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../MyPmTest/MyPmTest.iml" filepath="$PROJECT_DIR$/../MyPmTest/MyPmTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Test/Test.iml" filepath="$PROJECT_DIR$/Test/Test.iml" />
+    </modules>
+  </component>
+</project>
+

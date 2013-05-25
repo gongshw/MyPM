@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MyPM</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="app_url">http://github.com/cyrilmottier/GreenDroid</string>
+    <string name="loding">loading</string>
+    <string name="info">info</string>
+    <string name="help">help</string>
+    <string name="setting">setting</string>
+    <string name="title_activity_info">InfoActivity</string>
+
+</resources>
