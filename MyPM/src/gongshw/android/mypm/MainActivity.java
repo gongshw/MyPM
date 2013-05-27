@@ -150,24 +150,29 @@ public class MainActivity extends GDListActivity {
 
 	private void refresh_data() {
 		refreshItem.setLoading(true);
-		String currentCity = locationService.getCurentCity();
-		pmService.getCityByName(currentCity, new UpdateTask() {
+		new Thread(new Runnable() {
 			@Override
-			public void onUpdate(CityItem item) {
-				setList(item);
-			}
+			public void run() {
+				String currentCity = locationService.getCurentCity();
+				pmService.getCityByName(currentCity, new UpdateTask() {
+					@Override
+					public void onUpdate(CityItem item) {
+						setList(item);
+					}
 
-			@Override
-			public void onErr(String msg) {
-				Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT)
-						.show();
-			}
+					@Override
+					public void onErr(String msg) {
+						Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT)
+								.show();
+					}
 
-			@Override
-			public void onFinal() {
-				refreshItem.setLoading(false);
+					@Override
+					public void onFinal() {
+						refreshItem.setLoading(false);
+					}
+				});
 			}
-		});
+		}).start();
 	}
 
 }
