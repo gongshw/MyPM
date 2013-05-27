@@ -23,14 +23,14 @@ public class LocationServiceImpl implements LocationService {
 	private String provider;
 
 	@Override
-	public String getCurentCity() {
+	public String getCurrentCity() {
 		locationManager = (LocationManager) context
 				.getSystemService(Context.LOCATION_SERVICE);
 		setNullListener();
 		setProvider(LocationManager.GPS_PROVIDER);
-		if (!checkPrivider())
+		if (!checkProvider())
 			setProvider(LocationManager.NETWORK_PROVIDER);
-		checkPrivider();
+		checkProvider();
 		Location loc  = locationManager.getLastKnownLocation(provider);
 		return getCityByLocation(loc);
 	}
@@ -54,7 +54,7 @@ public class LocationServiceImpl implements LocationService {
 		};
 	}
 
-	private boolean checkPrivider() {
+	private boolean checkProvider() {
 		Location location = locationManager.getLastKnownLocation(provider);
 		if (location != null)
 			return providerEnable = true;

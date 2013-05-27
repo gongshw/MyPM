@@ -5,7 +5,7 @@ import android.location.Location;
 
 
 public interface LocationService {
-	String getCurentCity();
+	String getCurrentCity();
 	String getCityByLocation(Location loc);
 	public void setContext(Context context);
 }

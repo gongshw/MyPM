@@ -1,5 +1,6 @@
 package gongshw.android.mypm;
 
+import android.os.Looper;
 import gongshw.android.mypm.factory.ServiceFactory;
 import gongshw.android.mypm.model.CityItem;
 import gongshw.android.mypm.model.PollutionItem;
@@ -59,6 +60,10 @@ public class MainActivity extends GDListActivity {
 
 	private void setList(CityItem item) {
 		List<Item> items = new ArrayList<Item>();
+		items.add(new DrawableItem(
+				//getString(R.string.you_are_in) + item.getName(),
+				item.getName(),
+				com.cyrilmottier.android.greendroid.R.drawable.gd_action_bar_locate));
 		items.add(new MyItem(getString(R.string.data_update_at), item
 				.getUpdateTime()));
 		items.add(new DrawableItem(
@@ -150,29 +155,21 @@ public class MainActivity extends GDListActivity {
 
 	private void refresh_data() {
 		refreshItem.setLoading(true);
-		new Thread(new Runnable() {
+		String currentCity = locationService.getCurrentCity();
+		pmService.getCityByName(currentCity, new UpdateTask() {
 			@Override
-			public void run() {
-				String currentCity = locationService.getCurentCity();
-				pmService.getCityByName(currentCity, new UpdateTask() {
-					@Override
-					public void onUpdate(CityItem item) {
-						setList(item);
-					}
-
-					@Override
-					public void onErr(String msg) {
-						Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT)
-								.show();
-					}
-
-					@Override
-					public void onFinal() {
-						refreshItem.setLoading(false);
-					}
-				});
+			public void onUpdate(CityItem item) {
+				setList(item);
 			}
-		}).start();
+			@Override
+			public void onErr(String msg) {
+				Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT)
+						.show();
+			}
+			@Override
+			public void onFinal() {
+				refreshItem.setLoading(false);
+			}
+		});
 	}
-
 }
