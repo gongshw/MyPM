@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="greendroid">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/GreenDroid/bin/greendroid.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
